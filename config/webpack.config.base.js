@@ -47,6 +47,15 @@ const baseConfig = {
       },
     ],
   },
+  // Resolve 配置 Webpack 如何寻找模块所对应的文件
+  resolve: {
+    // 在导入语句没带文件后缀时，Webpack 会自动带上后缀后去尝试访问文件是否存在。  resolve.extensions用于配置在尝试过程中用到的后缀列表，默认是：js 和 json
+    extensions: [".js", ".ts", ".tsx"],
+    // 配置项通过别名来把原导入路径映射成一个新的导入路径
+    alias: {
+      "@": resolvePath("../src"),
+    },
+  },
   // 插件的处理
   plugins: [
     new HtmlWebpackPlugin({
